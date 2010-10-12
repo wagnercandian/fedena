@@ -1,0 +1,18 @@
+<% unless @payroll_details.empty? %>
+  <ul class="item-list">
+    <li class="heading">Detalhes da folha de pagamentos básica</li>
+    <% @payroll_details.each do |p| %>
+
+      <% @payroll_category=PayrollCategory.find(p.payroll_category_id)  %>
+      <%  unless @payroll_category.status == false %>
+        <li class="list<%=cycle('odd', 'even')%>">
+          <div class="item-name"><%= @payroll_category.name    %></div>
+          <div class="item-edit"><span class="currency-type"><%= @currency_type %></span> <%= p.amount %></div>
+        </li>
+      <% end %>
+
+    <% end %>
+    </ul>
+<% else %>
+  <p class="flash-msg">Nenhum detalhe de folha de pagamento fornecido para <%= @employee.first_name%>.</p>
+<% end %>

@@ -1,0 +1,20 @@
+<div id="content-header">
+   <img src="/images/student_details/student_details_logo.jpg" />
+  <h1>Estudante</h1>
+  <h3>Remover estudante</h3>
+  <div id="app-back-button">
+      <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+  </div>
+</div>
+
+<div id="page-yield">
+
+  <div id="delete-student">
+    <h4>Remover estudante</h4>
+    <p>Remover completamente os registros do estudante da base de dados do colégio. Use esta opção somente se você criou um registro de estudante acidentalmente e quer removê-lo completamente.</p>
+
+    <p class="warning">(Aviso: Todos os registros do estudante serão removidos e não poderão ser recuperados.)</p>
+    <%= link_to "► Remover", { :action => 'destroy', :id =>params[:id]}, :confirm => 'Are you completely sure?', :class=> 'user_button' %>
+  </div>
+
+</div>
